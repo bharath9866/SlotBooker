@@ -20,6 +20,7 @@ junit4 = "4.13.2"
 androidxJunit = "1.2.1"
 espresso = "3.6.1"
 mockk="1.13.8"
+turbine = "1.1.0"
 
 [libraries]
 # Core AndroidX
@@ -57,10 +58,10 @@ junit = { group = "junit", name = "junit", version.ref = "junit4" }
 mockk = { group = "io.mockk", name = "mockk", version.ref = "mockk" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidxJunit" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espresso" }
-androidx-compose-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
 androidx-compose-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
-androidx-compose-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
-kotlinx-coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test" }
+kotlinx-coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "coroutines" }
+hilt-android-testing = { group = "com.google.dagger", name = "hilt-android-testing", version.ref = "hilt" }
+turbine = { group = "app.cash.turbine", name = "turbine", version.ref = "turbine" }
 
 # KSP
 ksp-hilt = { group = "com.google.dagger", name = "hilt-compiler", version.ref = "hilt" }
