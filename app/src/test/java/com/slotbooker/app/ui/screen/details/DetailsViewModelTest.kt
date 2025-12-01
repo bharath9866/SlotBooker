@@ -10,8 +10,6 @@ import com.slotbooker.app.util.UiState
 import io.mockk.coEvery
 import io.mockk.mockk
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.flow.drop
-import kotlinx.coroutines.test.runCurrent
 import kotlinx.coroutines.test.runTest
 import org.junit.Rule
 import org.junit.Test
@@ -46,11 +44,9 @@ class DetailsViewModelTest {
         vm.phone = "9876543210"
 
         vm.book(slot)
-        runCurrent()
 
         vm.uiState.test {
             assert(awaitItem() is UiState.Success)
-            cancelAndIgnoreRemainingEvents()
         }
     }
 }
