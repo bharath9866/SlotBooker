@@ -57,9 +57,9 @@ com.slotbooker.app
 
 ---
 
-## 🗄 API Behavior
+## 🗄 API Behavior - Mock Response and Networking Behavior
 
-All API calls are simulated using a fake in-memory mock server.
+The application uses Retrofit along with MockWebServer to simulate API responses during runtime. All network calls are served from a predefined mock response rather than a live backend. This allows testing booking workflow, UI states, and error handling without an actual server dependency.
 
 | Endpoint | Method | Description                 |
 |----------|--------|-----------------------------|
@@ -67,6 +67,10 @@ All API calls are simulated using a fake in-memory mock server.
 | `my-bookings` | GET | Fetches user time slots     |
 | `/slot-booking` | POST | Books a slot with user details |
 
+---
+## Data Persistence Notice
+
+* User bookings are stored only in memory for demonstration purposes. Data will not persist after the application is closed or killed. When the app restarts, previously created bookings will not be retained.
 ---
 
 ## 🧪 Unit Testing
