@@ -24,23 +24,98 @@ SlotBooker is an Android application developed as part of a technical assessment
 ## 🏛 Architecture
 
 The project follows a **Clean MVVM** structure:
-com.slotbooker.app
-┣ data
-┃ ┣ mock
-┃ ┣ remote
-┃ ┗ repository
-┣ domain
-┃ ┣ model
-┃ ┣ repository
-┃ ┗ usecase
-┣ ui
-┃ ┣ components
-┃ ┣ navigation
-┃ ┗ screen
-┣ util
-┣ di
-┗ SlotBookerApplication
 
+SlotBooker
+│
+├── app
+│   ├── src
+│   │    ├── main
+│   │    │    ├── java
+│   │    │    │     └── com
+│   │    │    │          └── slotbooker
+│   │    │    │                  └── app
+│   │    │    │                       ├── data
+│   │    │    │                       │     ├── mock
+│   │    │    │                       │     │   └── FakeServerDatabase.kt
+│   │    │    │                       │     ├── remote
+│   │    │    │                       │     │   ├── dto
+│   │    │    │                       │     │   │   └── SlotDto.kt
+│   │    │    │                       │     │   └── ApiService.kt
+│   │    │    │                       │     └── repository
+│   │    │    │                       │         └── BookingRepositoryImpl.kt
+│   │    │    │                       │
+│   │    │    │                       ├── di
+│   │    │    │                       │   ├── AppModule.kt
+│   │    │    │                       │   └── NetworkModule.kt
+│   │    │    │                       │
+│   │    │    │                       ├── domain
+│   │    │    │                       │   ├── model
+│   │    │    │                       │   │   └── Slot.kt
+│   │    │    │                       │   ├── repository
+│   │    │    │                       │   │   └── BookingRepository.kt
+│   │    │    │                       │   └── usecase
+│   │    │    │                       │       ├── BookSlotUseCase.kt
+│   │    │    │                       │       ├── GetAvailableSlotsUseCase.kt
+│   │    │    │                       │       └── GetMySlotsUseCase.kt
+│   │    │    │                       │
+│   │    │    │                       ├── preview
+│   │    │    │                       │   └── PreviewData.kt
+│   │    │    │                       │
+│   │    │    │                       ├── ui
+│   │    │    │                       │   ├── components
+│   │    │    │                       │   │   ├── ShimmerSlotItem.kt
+│   │    │    │                       │   │   └── SlotCard.kt
+│   │    │    │                       │   ├── navigation
+│   │    │    │                       │   │   ├── AppDestinations.kt
+│   │    │    │                       │   │   └── NavGraph.kt
+│   │    │    │                       │   ├── screen
+│   │    │    │                       │   │   ├── details
+│   │    │    │                       │   │   │   ├── DetailsScreen.kt
+│   │    │    │                       │   │   │   └── DetailsViewModel.kt
+│   │    │    │                       │   │   ├── home
+│   │    │    │                       │   │   │   ├── HomeScreen.kt
+│   │    │    │                       │   │   │   └── HomeViewModel.kt
+│   │    │    │                       │   │   └── slots
+│   │    │    │                       │   │       ├── SlotsScreen.kt
+│   │    │    │                       │   │       └── SlotsViewModel.kt
+│   │    │    │                       │   └── theme
+│   │    │    │                       │       ├── Color.kt
+│   │    │    │                       │       ├── Theme.kt
+│   │    │    │                       │       └── Type.kt
+│   │    │    │                       │
+│   │    │    │                       ├── util
+│   │    │    │                       │   └── UiState.kt
+│   │    │    │                       │
+│   │    │    │                       ├── MainActivity.kt
+│   │    │    │                       └── SlotBookerApplication.kt
+│   │    │    │
+│   │    │    ├── res
+│   │    │    └── AndroidManifest.xml
+│   │    │
+│   │    │
+│   │    └── test (Unit Tests)
+│   │         └── java
+│   │             └── com
+│   │                 └── slotbooker
+│   │                     └── app
+│   │                         ├── data
+│   │                         │   └── repository
+│   │                         │       └── BookingRepositoryImplTest.kt
+│   │                         ├── testutil
+│   │                         │   └── MainDispatcherRule.kt
+│   │                         └── ui
+│   │                             └── screen
+│   │                                 ├── details
+│   │                                 │   └── DetailsViewModelTest.kt
+│   │                                 └── slots
+│   │                                     └── SlotsViewModelTest.kt
+│   │
+│   └── build.gradle.kts (app module)
+│
+├── build.gradle.kts (project module)
+├── settings.gradle.kts
+├── README.md
+└── .gitignore
 
 ---
 
